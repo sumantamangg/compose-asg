@@ -1,0 +1,22 @@
+version '2'
+
+services:
+    drupal:
+        build: 
+            context: .
+            dockerfile: dockerfile
+        ports: 
+            - '8080:80'
+        volumes:
+            - /var/www/html/modules
+            - /var/www/html/profiles
+            - /var/www/html/themes
+        image:
+            drupalI
+    postgres:
+        image: postgres
+        environment:
+            - POSTGRES_DB=drupal \
+            - POSTGRES_USER=user \
+            - POSTGRES_PASSWORD=buckleUP
+        
